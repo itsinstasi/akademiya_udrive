@@ -1,2 +1,2 @@
 ﻿User-agent: *
-Sitemap: http://akademiya-udrive.itsinsta.site//sitemap.xml
+Sitemap: https://akademiya-udrive.itsinsta.site//sitemap.xml
