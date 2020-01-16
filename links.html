@@ -62,10 +62,13 @@
 				<div class="header__wrap">
 					<div class="header__left">
 						<a href="./" class="header__logo">
-							<div class="header__logo-pic"><img src="https://scontent-arn2-2.cdninstagram.com/v/t51.2885-19/s150x150/69853806_522874301606341_3006634968722964480_n.jpg?_nc_ht=scontent-arn2-2.cdninstagram.com&_nc_ohc=Uj6Tm2PP01EAX9Jkbdv&oh=9994c8da28afb0ea131843024d6b4f82&oe=5EDBF36A" alt="Академия Юдрайв Москва"></div>
+							<div class="header__logo-pic"><img src="https://scontent-arn2-2.cdninstagram.com/v/t51.2885-19/s150x150/69853806_522874301606341_3006634968722964480_n.jpg?_nc_ht=scontent-arn2-2.cdninstagram.com&_nc_ohc=q5CPAmZVA6MAX8o5rHE&oh=b42232f27443311f17b9c4882a8f6bc1&oe=5EDBF36A" alt="Академия Юдрайв Москва"></div>
 							<div class="header__logo-txt">akademiya_udrive</div>
 						</a>
 						<div class="header__title">Академия Юдрайв Москва</div>
+					</div>
+					<div id="settingsContainer" class="header__right" style="display:none">
+						<button onclick="window.open('http://itsinsta.site/page.html?project=akademiya_udrive');" class="btn stories-popup__buy">Настроить</button>
 					</div>
 				</div>
 			</div>
@@ -133,7 +136,34 @@ function getFormData($form){
     return indexed_array;
 }
 
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+}
+
 $(document).ready(function(){
+	var lid = getUrlParameter("lid");
+	if (lid) {
+        localStorage.setItem("hasToken", true);
+
+		$("#settingsContainer").show();
+		$("#settingsContainer").children("btn").first().attr("onclick", 'window.open("http://itsinsta.site/invite.html?invitationId="' + lid + ')');
+	}
+	else if (localStorage.getItem("hasToken"))
+	{
+		$("#settingsContainer").show();
+	}
+
     $('form').submit(function(){
 	event.preventDefault(); //prevent default action 
 
