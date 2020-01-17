@@ -68,7 +68,7 @@
 						<div class="header__title">Академия Юдрайв Москва</div>
 					</div>
 					<div id="settingsContainer" class="header__right" style="display:none">
-						<button onclick="window.open('http://itsinsta.site/page.html?project=akademiya_udrive');" class="btn stories-popup__buy">Настроить</button>
+						<button onclick="window.open('http://itsinsta.site/page.html?project=akademiya_udrive', '_self');" class="btn stories-popup__buy">Настроить</button>
 					</div>
 				</div>
 			</div>
@@ -95,7 +95,7 @@
 
 
 						<div class="links-page-btn-pic">
-							<center><img src="https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/e35/73398114_833240563738069_8070602481705306385_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=101&_nc_ohc=MerRI7gMoUQAX_a8k4r&oh=9361c00f2ce7dae3f77a3c3248db3957&oe=5ED9D790" alt="">
+							<center><img src="https://scontent-arn2-1.cdninstagram.com/v/t51.2885-15/e35/73398114_833240563738069_8070602481705306385_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=101&_nc_ohc=lhVtnzzP_wgAX8rv9RB&oh=c7a5dd3f3a2fd4966cbfdf943b600f95&oe=5ED9D790" alt="">
 							</img></center>
 						</div>
 
@@ -153,7 +153,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 $(document).ready(function(){
 	var lid = getUrlParameter("lid");
-	if (lid) {
+	if (lid && lid != "true") {
         localStorage.setItem("hasToken", true);
 
 		$("#settingsContainer").show();
